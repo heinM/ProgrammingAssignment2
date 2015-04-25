@@ -21,6 +21,7 @@ makeCacheMatrix <- function(x = matrix()) {
 ## does not already exist
 
 cacheSolve <- function(x, ...) {
+<<<<<<< Updated upstream
     matrixM <- x$getInverse()
     if(!is.null(matrixM)) {
         message("getting cached data")
@@ -30,4 +31,15 @@ cacheSolve <- function(x, ...) {
     matrixM <- solve(data)
     x$setInverse(matrixM)
     matrixM
+=======
+    matrixM <- x$getInverse() ##set matrixM using getFunction in makeCacheMatric
+    if(!is.null(matrixM)) {
+        message("getting cached data")
+        return(matrixM)
+    } ## check to see if it is already calculated
+    data <- x$get()
+    matrixM <- solve(data) ## create new invesematrix if it was NULL
+    x$setInverse(matrixM)
+    matrixM ##Return inverse matrix
+>>>>>>> Stashed changes
 }
